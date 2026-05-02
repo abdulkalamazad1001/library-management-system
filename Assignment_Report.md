@@ -22,21 +22,18 @@ Using Spring Boot's initialization capabilities, a `data.sql` script was provide
 - **Controller Method:** The `saveBook()` method in `LibraryController.java` uses `@ModelAttribute` to bind the form data to a `Book` object.
 - **Exception Handling:** A `try-catch` block catches `DataIntegrityViolationException` to gracefully handle duplicate ISBN entries (since the ISBN column has a unique constraint), returning the user to the form with a descriptive error message instead of a generic 500 error.
 
-> **[PLACEHOLDER: Insert Screenshot of the Add Book Form here]**
 
 ### Read Operation
 - **Custom Query:** In `BookRepository.java`, a custom JPQL query was implemented: `@Query("SELECT b FROM Book b JOIN FETCH b.author")`. This performs an inner join, efficiently fetching both Book and Author data in a single database hit.
 - **Controller Method:** The `listBooks()` method calls the service layer to retrieve the list and binds it to the model using `model.addAttribute()`.
 - **View:** `list.jsp` uses JSTL `<c:forEach>` to iterate over the books and display them along with their associated author in a styled HTML table.
 
-> **[PLACEHOLDER: Insert Screenshot of the Book List View here]**
 
 ### Update Operation
 - **Controller Method:** Two methods handle updates. `showFormForUpdate()` fetches the existing book by ID and populates the model. `updateBook()` processes the submitted modifications.
 - **View:** `update-form.jsp` binds to the existing data so the user can seamlessly edit it.
 - **Service Layer:** The `updateBook` method retrieves the persistent entity, updates its fields, and saves it within a `@Transactional` context to ensure atomicity.
 
-> **[PLACEHOLDER: Insert Screenshot of the Update Book Form here]**
 
 ## 4. Challenges Faced and Solutions
 
@@ -52,4 +49,4 @@ Using Spring Boot's initialization capabilities, a `data.sql` script was provide
 ## 5. Github URL
 The project source code is hosted on GitHub.
 
-**URL:** `[PLACEHOLDER: Replace this with your GitHub Repository URL]`
+**URL:** `https://github.com/abdulkalamazad1001/library-management-system`
